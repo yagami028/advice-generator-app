@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import './index.css';
+import "./index.css";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
-// import divider-mobile from '../public/images/'
 
 function App() {
   const [advice, setAdvice] = useState("");
@@ -13,18 +12,18 @@ function App() {
     return responseJSON.slip;
   };
 
-  const newAdvice = () => getAdvice().then((data) => {
+  const newAdvice = () =>
+    getAdvice().then((data) => {
       const { id, advice } = data;
       setAdvice(advice);
       setId(id);
-      console.log('click');
+      console.log("click");
     });
 
   useEffect(() => {
     newAdvice();
     console.log("update");
   }, []);
-
 
   return (
     <main className="container">
@@ -37,7 +36,7 @@ function App() {
         </h3>
         <div className="btn-container">
           <div className="divider"></div>
-          <button className="btn" onClick={newAdvice}/>
+          <button className="btn" onClick={newAdvice} />
         </div>
       </div>
     </main>
